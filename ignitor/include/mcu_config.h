@@ -31,11 +31,12 @@ extern "C" {
 
 void SystemClock_Config(void);
 void GPIO_Init(void);
-void MX_TIM2_Init(void);
-void MX_TIM3_Init(void);
-void HAL_TimersCallback(TIM_HandleTypeDef *htim);
-uint32_t milliseconds_elapsed(void);
-uint16_t seconds_elapsed(void);
+//void MX_TIM2_Init(void);
+//void MX_TIM3_Init(void);
+//void TIM2_Callback(TIM_HandleTypeDef *htim);
+//void TIM3_Callback(TIM_HandleTypeDef *htim);
+//uint32_t milliseconds_elapsed(void);
+//uint16_t seconds_elapsed(void);
 
 #ifdef __cplusplus
 }

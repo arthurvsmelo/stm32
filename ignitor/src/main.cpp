@@ -12,15 +12,15 @@ void setup()
 {
 	SystemClock_Config();
 	GPIO_Init();
-	MX_TIM2_Init();
-	MX_TIM3_Init();
+	//MX_TIM2_Init();
+	//MX_TIM3_Init();
 	display.begin(true);
 	display.setBrightness(4);
-	display.setScrolldelay(500);
+	display.setScrolldelay(200);
 	display.showString("ASA BrAnCA AErOSPACE", 4, 0, dots);
-	delay_ms(300);
+	delay(300);
 	display.showString(" OFF");
-	delay_ms(1000);
+	delay(1000);
 }
 
 void loop() 
@@ -28,10 +28,10 @@ void loop()
 	for (contador = 1; contador < 11; contador++)
 	{
 		display.showNumberDec(contador, 0, false, 4, 0);
-		delay_ms(1000);
+		delay(1000);
 	}
-	display.showString("FirE");
-	delay_ms(1000);
+	display.showString("FIrE");
+	delay(1000);
 	display.showString("ASA BrAnCA AErOSPACE", 4, 0, dots);
-	delay_ms(1000);
+	delay(1000);
 }

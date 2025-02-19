@@ -1,11 +1,11 @@
 #include <mcu_config.h>
-
+/*
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
 volatile uint32_t counter_ms = 0;  // Contador que incrementa a cada 1ms
 volatile uint16_t counter_sec = 0xFFFF;  // Contador que decrementa a cada 1s
-
+*/
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -65,6 +65,7 @@ void GPIO_Init(void)
 
 }
 
+/*
 void MX_TIM2_Init(void) {
     __HAL_RCC_TIM2_CLK_ENABLE();
 
@@ -73,7 +74,7 @@ void MX_TIM2_Init(void) {
     htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
     htim2.Init.Period = 999; // Conta 1000us (1 ms)
     htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-	HAL_TIM_RegisterCallback(&htim2, HAL_TIM_PERIOD_ELAPSED_CB_ID, HAL_TimersCallback);
+	HAL_TIM_RegisterCallback(&htim2, HAL_TIM_PERIOD_ELAPSED_CB_ID, TIM2_Callback);
     HAL_TIM_Base_Init(&htim2);
     HAL_TIM_Base_Start_IT(&htim2);
 }
@@ -86,12 +87,12 @@ void MX_TIM3_Init(void) {
     htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
     htim3.Init.Period = 999; // Conta 1000ms (1 segundo)
     htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-	HAL_TIM_RegisterCallback(&htim3, HAL_TIM_PERIOD_ELAPSED_CB_ID, HAL_TimersCallback);
+	HAL_TIM_RegisterCallback(&htim3, HAL_TIM_PERIOD_ELAPSED_CB_ID, TIM3_Callback);
     HAL_TIM_Base_Init(&htim3);
     HAL_TIM_Base_Start_IT(&htim3);
 }
 
-void HAL_TimersCallback(TIM_HandleTypeDef *htim) {
+void TIM2_Callback(TIM_HandleTypeDef *htim) {
     if (htim->Instance == TIM2) {
         // Incrementa e reseta se ultrapassar 32 bits
         counter_ms++;
@@ -99,7 +100,9 @@ void HAL_TimersCallback(TIM_HandleTypeDef *htim) {
             counter_ms = 0;
         }
     }
+}
 
+void TIM3_Callback(TIM_HandleTypeDef *htim) {
     if (htim->Instance == TIM3) {
         // Decrementa até 0 e reseta para valor máximo
         if (counter_sec > 0) {
@@ -127,3 +130,4 @@ uint16_t seconds_elapsed(void)
     __enable_irq();   // Reativa interrupções
     return sec;
 }
+*/

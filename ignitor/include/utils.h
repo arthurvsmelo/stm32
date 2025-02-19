@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+#include <Arduino.h>
 #include <mcu_config.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -12,7 +13,7 @@ extern "C" {
 #define DEBOUNCE_DELAY 30
 
 bool debounce(GPIO_TypeDef* port, uint16_t pin); 
-void delay_ms(uint32_t delay);
+//void delay_ms(uint32_t delay);
 
 #ifdef __cplusplus
 }
