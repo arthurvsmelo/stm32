@@ -12,7 +12,8 @@ extern "C" {
 
 #define DEBOUNCE_DELAY 30
 
-bool debounce(GPIO_TypeDef* port, uint16_t pin); 
+bool debounce_falling_edge(GPIO_TypeDef* port, uint16_t pin); 
+bool debounce_rising_edge(GPIO_TypeDef* port, uint16_t pin); 
 //void delay_ms(uint32_t delay);
 
 #ifdef __cplusplus
